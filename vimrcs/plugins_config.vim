@@ -135,7 +135,7 @@ let g:lightline = {
       \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ ['mode', 'paste'],
-      \             ['fugitive', 'readonly', 'filename', 'modified'] ],
+      \             ['fugitive', 'readonly', 'relativepath', 'modified'] ],
       \   'right': [ [ 'lineinfo' ], ['percent'] ]
       \ },
       \ 'component': {
@@ -166,7 +166,7 @@ nnoremap <silent> <leader>z :Goyo<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'python': ['flake8'],
+\   'python': ['ruff'],
 \   'go': ['go', 'golint', 'errcheck']
 \}
 
