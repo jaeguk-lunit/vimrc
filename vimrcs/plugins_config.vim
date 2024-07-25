@@ -170,6 +170,10 @@ let g:ale_linters = {
 \   'go': ['go', 'golint', 'errcheck']
 \}
 
+let g:ale_fixers = {'python': ['ruff', 'ruff_format']} 
+
+let g:ale_python_ruff_options = '--select E,F,W,I,UP --line-length 100'
+
 nmap <silent> <leader>a <Plug>(ale_next_wrap)
 
 " Disabling highlighting
@@ -180,6 +184,8 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_virtualtext_cursor = 'disabled'
 
+" Fix files when saving file
+" let g:ale_fix_on_save = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git gutter (Git diff)
