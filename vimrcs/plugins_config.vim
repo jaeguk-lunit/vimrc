@@ -155,15 +155,15 @@ function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gs <plug>(lsp-document-symbol-search)
-    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>d <plug>(lsp-definition)
+    nmap <buffer> <leader>s <plug>(lsp-document-symbol-search)
+    nmap <buffer> <leader>S <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> <leader>r <plug>(lsp-references)
+    nmap <buffer> <leader>i <plug>(lsp-implementation)
+    nmap <buffer> <leader>t <plug>(lsp-type-definition)
     nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> <leader>[ <plug>(lsp-previous-diagnostic)
+    nmap <buffer> <leader>] <plug>(lsp-next-diagnostic)
     nmap <buffer> K <plug>(lsp-hover)
     nmap <expr><buffer> <c-d> popup_list()->empty() ? '<c-d>' : lsp#scroll(+4)
     nmap <expr><buffer> <c-u> popup_list()->empty() ? '<c-u>' : lsp#scroll(-4)
@@ -173,6 +173,12 @@ function! s:on_lsp_buffer_enabled() abort
 
     " refer to doc to add more commands
 endfunction
+
+"How to load diagnostic meesage
+let g:lsp_diagnostics_virtual_text_enabled = 0
+let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_diagnostics_float_delay = 500
+let g:lsp_document_code_action_signs_hint = {'text': ' '}
 
 augroup lsp_install
     au!
