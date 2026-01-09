@@ -15,7 +15,7 @@ set packpath+=~/.vim_runtime
 " => Load pathogen paths
 """"""""""""""""""""""""""""""
 let s:vim_runtime = expand('<sfile>:p:h')."/.."
-call pathogen#infect(s:vim_runtime.'/sources_non_forked/{}')
+call pathogen#infect(s:vim_runtime.'/plugins/{}')
 call pathogen#helptags()
 
 
@@ -99,12 +99,14 @@ let g:lightline = {
 " => Ale (syntax checker and linter)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_linters = {
-\   'javascript': ['eslint'],
 \   'python': ['ruff'],
-\   'go': ['go', 'golint', 'errcheck']
+\   'cpp': ['clangd']
 \}
 
-let g:ale_fixers = {'python': ['ruff', 'ruff_format']} 
+let g:ale_fixers = {
+\   'python': ['ruff', 'ruff_format'],
+\   'cpp': ['clangd']
+\} 
 
 let g:ale_python_ruff_options = '--select E,F,W,I,UP --line-length 100'
 
@@ -118,6 +120,8 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_virtualtext_cursor = 'disabled'
 
+"ALEFix
+nnoremap <leader>a <Plug>(ale_fix) :ALEFix<Return>
 " Fix files when saving file
 " let g:ale_fix_on_save = 1
 
